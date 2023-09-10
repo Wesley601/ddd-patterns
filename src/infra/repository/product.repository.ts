@@ -1,6 +1,7 @@
 import { Knex } from "knex";
 import { Product } from "../../domain/entity/product";
 import { IProductRepository } from "../../domain/repository/product.repository";
+import { ProductTable } from "../db/types";
 
 export class ProductRepository implements IProductRepository {
 	constructor(private readonly knex: Knex) {}
@@ -11,15 +12,17 @@ export class ProductRepository implements IProductRepository {
 				id: entity.id,
 				name: entity.name,
 				price: entity.price.toString(),
-			})
+			} satisfies ProductTable)
 			.into("products");
 	}
 
 	update(entity: Product): Promise<void> {
-		return this.knex("products").where({ id: entity.id }).update({
-			name: entity.name,
-			price: entity.price.toString(),
-		});
+		return this.knex("products")
+			.where({ id: entity.id })
+			.update({
+				name: entity.name,
+				price: entity.price.toString(),
+			} satisfies Omit<ProductTable, "id">);
 	}
 
 	async find(id: string): Promise<Product> {
@@ -40,7 +43,7 @@ export class ProductRepository implements IProductRepository {
 		return this.knex
 			.select("*")
 			.from("products")
-			.then((rows) =>
+			.then((rows: ProductTable[]) =>
 				rows.map((row) => new Product(row.id, row.name, row.price)),
 			);
 	}
