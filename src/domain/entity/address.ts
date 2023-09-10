@@ -8,6 +8,19 @@ export class Address {
 		this.validate();
 	}
 
+	get street() {
+		return this._street;
+	}
+	get city() {
+		return this._city;
+	}
+	get state() {
+		return this._state;
+	}
+	get zip() {
+		return this._zip;
+	}
+
 	validate() {
 		if (!this._street?.length) {
 			throw new Error("Street is required");
