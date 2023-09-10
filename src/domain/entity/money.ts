@@ -80,7 +80,7 @@ export class Money {
 		return this._amount < money.toNumber();
 	}
 
-	toString() {
+	toString(): MoneyFormat {
 		return `${this._currency} ${this.amount}`;
 	}
 
