@@ -5,11 +5,13 @@ import { Reward } from "./reward";
 const REWARD_POINTS_PER_CENT = 200;
 
 export class Customer {
-	private _address?: Address;
-	private _active = false;
-	private _rewardPoints = new Reward(0);
-
-	constructor(private _id: string, private _name: string) {
+	constructor(
+		private _id: string,
+		private _name: string,
+		private _address?: Address,
+		private _active = false,
+		private _rewardPoints = new Reward(0),
+	) {
 		this.validate();
 	}
 
@@ -29,6 +31,10 @@ export class Customer {
 
 	get name() {
 		return this._name;
+	}
+
+	get address() {
+		return this._address;
 	}
 
 	get rewardPoints() {
