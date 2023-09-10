@@ -44,6 +44,10 @@ export class OrderItem {
 		return this._quantity;
 	}
 
+	get productId() {
+		return this._productId;
+	}
+
 	get amount() {
 		return new Money(
 			this._price.currency,

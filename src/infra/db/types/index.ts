@@ -16,3 +16,19 @@ export type CustomerTable = {
 	active: boolean;
 	reward_points: number;
 };
+
+export type OrderTable = {
+	id: string;
+	customer_id: string;
+	currency: string;
+};
+
+export type OrderItemTable = {
+	id: string;
+	name: string;
+	price: string;
+	quantity: number;
+	total: number;
+	order_id: string;
+	product_id: string;
+};

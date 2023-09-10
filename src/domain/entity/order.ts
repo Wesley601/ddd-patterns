@@ -1,4 +1,4 @@
-import { Currency, Money, MoneyFormat } from "./money";
+import { Currency, Money } from "./money";
 import { OrderItem } from "./order-item";
 import { Product } from "./product";
 
@@ -28,6 +28,18 @@ export class Order {
 
 	get id() {
 		return this._id;
+	}
+
+	get customerId() {
+		return this._customerId;
+	}
+
+	get items() {
+		return this._items;
+	}
+
+	get currency() {
+		return this._currency;
 	}
 
 	get total() {
