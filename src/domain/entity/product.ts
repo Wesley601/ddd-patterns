@@ -23,8 +23,24 @@ export class Product {
 		return true;
 	}
 
+	get id() {
+		return this._id;
+	}
+
+	get name() {
+		return this._name;
+	}
+
 	get price() {
 		return this._price;
+	}
+
+	changeName(value: string) {
+		if (!value.length) {
+			throw new Error("Name is required");
+		}
+
+		this._name = value;
 	}
 
 	changePrice(value: MoneyFormat | Money) {

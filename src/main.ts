@@ -1,9 +1,9 @@
 import { randomUUID } from "crypto";
 
-import { Address } from "./entity/address";
-import { Customer } from "./entity/customer";
-import { Order } from "./entity/order";
-import { OrderItem } from "./entity/order-item";
+import { Address } from "./domain/entity/address";
+import { Customer } from "./domain/entity/customer";
+import { Order } from "./domain/entity/order";
+import { OrderItem } from "./domain/entity/order-item";
 
 const customer = new Customer("1", "John Doe");
 const address = new Address("123 Main St", "New York", "NY", "10001");
