@@ -1,4 +1,5 @@
 import { Order } from "./order";
+import { Product } from "./product";
 
 describe("order", () => {
 	it("should throw error when id is empty", () => {
@@ -17,8 +18,8 @@ describe("order", () => {
 
 	it("should return total price of items", () => {
 		const order = new Order("o1", "c1");
-		order.addItem("i1", "Item 1", "USD 10.00", 1);
-		order.addItem("i2", "Item 2", "USD 20.00", 2);
+		order.addItem("i1", new Product("p1", "Item 1", "USD 10.00"), 1);
+		order.addItem("i2", new Product("p2", "Item 2", "USD 20.00"), 2);
 
 		expect(order.total.toString()).toBe("USD 50.00");
 	});

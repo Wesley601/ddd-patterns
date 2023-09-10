@@ -7,6 +7,7 @@ export class OrderItem {
 		private _id: string,
 		private _name: string,
 		price: MoneyFormat,
+		private _productId: string,
 		private _quantity: number,
 	) {
 		this._price = Money.fromString(price);

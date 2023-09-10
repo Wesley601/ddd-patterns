@@ -1,5 +1,6 @@
 import { Currency, Money, MoneyFormat } from "./money";
 import { OrderItem } from "./order-item";
+import { Product } from "./product";
 
 export class Order {
 	constructor(
@@ -40,14 +41,14 @@ export class Order {
 		);
 	}
 
-	addItem(id: string, name: string, price: MoneyFormat, quantity: number) {
-		const currency = price.split(" ")[0] as Currency;
-
-		if (currency !== this._currency) {
-			throw new Error("Currency mismatch");
-		}
-
-		const item = new OrderItem(id, name, price, quantity);
+	addItem(id: string, product: Product, quantity: number) {
+		const item = new OrderItem(
+			id,
+			product.name,
+			product.price.toString(),
+			product.id,
+			quantity,
+		);
 		this._items.push(item);
 	}
 }
