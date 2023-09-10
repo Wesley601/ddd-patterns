@@ -1,0 +1,21 @@
+{
+  "name": "ddd-patterns",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prebuild": "rm -fr dist",
+    "build": "tsc",
+    "start": "tsx src/main.ts",
+    "test": "vitest",
+    "test:watch": "vitest --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@biomejs/biome": "^1.1.2",
+    "tsx": "^3.12.8",
+    "vitest": "^0.34.4"
+  }
+}
