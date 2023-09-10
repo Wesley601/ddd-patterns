@@ -1,8 +1,8 @@
 import { Knex } from "knex";
 import { Product } from "../../domain/entity/product";
-import { BaseRepository } from "../../domain/repository/base.repository";
+import { IProductRepository } from "../../domain/repository/product.repository";
 
-export class ProductRepository implements BaseRepository<Product> {
+export class ProductRepository implements IProductRepository {
 	constructor(private readonly knex: Knex) {}
 
 	async create(entity: Product): Promise<void> {
